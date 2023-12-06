@@ -1,0 +1,31 @@
+.homepage {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.backgroundImage {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.title,
+.subtitle,
+.btn {
+    position: absolute;
+}
+
+.title {
+    top: 25%;
+    left: 50%;
+    color: white;
+    width: 400px;
+}
+
+.subtitle {
+    top: 50%;
+    left: 25%;
+    color: red;
+    width: 300px;
+}
