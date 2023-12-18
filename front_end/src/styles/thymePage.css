@@ -1,0 +1,140 @@
+.newDay {
+    width: 60%;
+}
+
+.prompts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+
+.card.cardFrontThyme {
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.cardBackThyme img {
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+    border-radius: 12px;
+    perspective: 800px;
+
+
+}
+
+.cardFrontImage {
+    height: 35%;
+    object-fit: scale-down;
+}
+
+.worksection {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+
+
+.journal_entry {
+    width: 100%;
+}
+
+.dayCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.profileCard {
+    width: 50%;
+
+}
+
+.thesaurusLogo {
+    width: 35px;
+    height: 35px;
+    margin: 0;
+}
+
+
+
+.thymePage {
+    background-color: #f7f6ef;
+    min-height: 100vh;
+    text-align: center;
+
+}
+
+.thymeExplanation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.thymeExplanation img {
+    width: 35%;
+    margin: 30px;
+    border-radius: 5%;
+}
+
+.thymeText {
+    margin: 30px;
+    width: 45%;
+    align-self: center;
+    color: #4c5241;
+    font-family: 'Allerta', sans-serif;
+}
+
+.thymeTitle {
+    font-family: 'GrandHotel', cursive;
+    font-size: 4em;
+}
+
+.cottageImg {
+    width: 400px;
+    margin-top: 50px;
+}
+
+.profileSection {
+    width: 25%;
+    text-align: left;
+}
+
+.pencil,
+.trash {
+    cursor: pointer;
+}
+
+.textAreaContainer {
+    position: relative;
+
+}
+
+.thesaurusBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    background-color: #022E51;
+    border-radius: 4px;
+}
+
+.thesaurusWords {
+    display: flex;
+    flex-direction: row;
+}

@@ -57,6 +57,7 @@ class SingleProfile(APIView):
         return Response("Profile does not exist", status=HTTP_404_NOT_FOUND)
 
     def delete(self, request, profile_id):
+        print(profile_id)
         profile = GameProfile.objects.get(id=profile_id)
         if profile:
             profile.delete()
@@ -70,6 +71,20 @@ class AloneProfile(APIView):
             ser_profile = ProfileSerializer(
                 request.user.game_profiles.filter(
                     game_name="Alone Among the Stars"
+                ).first()
+            )
+            return Response(ser_profile.data)
+        except Exception as e:
+            print(e)
+            return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
+
+
+class ThymeProfile(APIView):
+    def get(self, request):
+        try:
+            ser_profile = ProfileSerializer(
+                request.user.game_profiles.filter(
+                    game_name="One Day at a Thyme"
                 ).first()
             )
             return Response(ser_profile.data)

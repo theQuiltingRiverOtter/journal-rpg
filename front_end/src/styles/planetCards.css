@@ -1,0 +1,25 @@
+.newPlanet {
+    width: 100%;
+}
+
+.prompts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+
+.card.cardFront {
+    width: 250px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.card.cardBack {
+    width: 250px;
+    height: 300px;
+    background-color: black;
+    cursor: pointer;
+}

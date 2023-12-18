@@ -2,30 +2,118 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+
+}
+
+.front {
+    width: 100%;
+    height: 80%;
 }
 
 .backgroundImage {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: -1;
 }
 
 .title,
 .subtitle,
-.btn {
+.loginBtn {
     position: absolute;
 }
 
 .title {
-    top: 25%;
-    left: 50%;
-    color: white;
+    top: 10%;
+    left: 70%;
+    color: #A3B4C8;
     width: 400px;
+    text-align: center;
+    font-size: 4.5rem;
 }
 
 .subtitle {
-    top: 50%;
+    top: 30%;
     left: 25%;
-    color: red;
+    color: #B74803;
     width: 300px;
+}
+
+.loginBtn {
+    top: 45%;
+    left: 27%;
+
+}
+
+.middle {
+    text-align: center;
+    margin: 50px;
+}
+
+.writingImg {
+    width: 50%;
+}
+
+.cardSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 50px;
+
+}
+
+.whatCards {
+    width: 30%;
+}
+
+.whatCards img {
+    width: 25%;
+    margin-bottom: 20px;
+
+}
+
+.aboutCard {
+    width: 35vw;
+}
+
+.aboutCard img {
+    width: 25vw;
+    height: 25vw;
+    object-fit: cover;
+    margin: 40px;
+}
+
+
+
+
+.middle2 {
+    background-color: #A3B4C8;
+    text-align: center;
+    padding: 50px;
+}
+
+.footer {
+    background-color: #022E51;
+    color: #A3B4C8
+}
+
+.bottom {
+    text-align: center;
+    padding: 30px;
+}
+
+.startedSection {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.startedText,
+.startedImg {
+    width: 50%;
+}
+
+.startedImg img {
+    width: 400px;
+    text-align: center;
 }

@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { api } from "../utilities"
 import { useNavigate } from "react-router-dom"
 import { useOutletContext } from "react-router-dom";
+import "../index.css"
+
 
 function SignupPage() {
     const [displayName, setDisplayName] = useState("")
@@ -33,7 +35,8 @@ function SignupPage() {
                 api.defaults.headers.common["Authorization"] = `Token ${token}`;
                 setUser(user);
                 setSignedIn(true)
-                navigate("/")
+                navigate(-1)
+
 
             } catch (err) {
                 console.log("something went wrong", err)
@@ -46,7 +49,7 @@ function SignupPage() {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form className="form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Display Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter Display Name" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />

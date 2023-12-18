@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Allerta';
+    src: local('Allerta'), url(./fonts/Allerta-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Cookie';
+    src: local('Cookie'), url(./fonts/Cookie-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'GrandHotel';
+    src: local('GrandHotel'), url(./fonts/GrandHotel-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: local('Orbitron'), url(./fonts/Orbitron-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: local('Ubuntu'), url(./fonts/Ubuntu-Regular.ttf) format('truetype');
+}
+
+.navbar-custom {
+    background-color: #022E51;
+}
+
+.custom-color {
+    color: white;
+}
+
+
+
+
+.form {
+    width: 50%;
+    padding: 5vmin;
+    margin: auto;
+    margin-top: 10vmin;
+    border: solid 2px #022E51;
+    border-radius: 8px;
+
+
+}

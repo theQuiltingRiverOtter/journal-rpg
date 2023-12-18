@@ -10,3 +10,4 @@ class GameProfile(models.Model):
     user = models.ForeignKey(
         to=User, on_delete=models.CASCADE, related_name="game_profiles", default=1
     )
+    public = models.BooleanField(default=False)

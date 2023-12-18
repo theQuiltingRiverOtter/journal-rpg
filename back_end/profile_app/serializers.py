@@ -8,7 +8,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GameProfile
-        fields = ["id", "player_name", "game_name", "user", "entries"]
+        fields = ["id", "player_name", "game_name", "user", "entries", "public"]
 
     def get_entries(self, instance):
         entries = instance.entries.all()

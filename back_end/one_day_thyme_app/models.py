@@ -3,7 +3,7 @@ from profile_app.models import GameProfile
 from entry_app.models import Entry
 from django.core import validators as v
 from datetime import date
-
+from django.contrib.postgres.fields import ArrayField
 from .validators import validate_location
 
 
@@ -19,6 +19,10 @@ class OneDayThyme(models.Model):
     profile = models.ForeignKey(
         OneDayThymeProfile, on_delete=models.CASCADE, related_name="days"
     )
-    day = models.PositiveIntegerField(default=1)
     total_prompts = models.PositiveIntegerField(validators=[v.MaxValueValidator(6)])
+    prompts = ArrayField(models.CharField(), default=list)
     entries = models.ManyToManyField(Entry)
+    day = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.profile} ${self.total_prompts} ${self.prompts.length} ${self.entries.length} ${self.day}"

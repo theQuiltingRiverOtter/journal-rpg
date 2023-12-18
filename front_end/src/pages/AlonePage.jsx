@@ -3,9 +3,11 @@ import { useOutletContext } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import { api } from "../utilities"
 import AloneExplanation from "../components/AloneExplanation";
-import AloneForm from "../components/AloneForm";
+
 import PlanetList from "../components/PlanetList";
 import NewPlanet from "../components/NewPlanet";
+import "../styles/alonePage.css"
+
 
 
 
@@ -34,10 +36,12 @@ function AlonePage() {
     }
 
     const getNewPlanet = async () => {
+        setShowNewPlanet(false)
         const response = await api.post("alone/")
         setPlanetData(response.data)
         setShowNewPlanet(true)
     }
+
 
     const getGame = async () => {
         try {
@@ -64,22 +68,24 @@ function AlonePage() {
         if (signedIn) {
             getGame()
         }
-    }, [])
+
+    }, [signedIn, planetData])
 
     return (
-        <div>
-            <h1>Alone Among the Stars</h1>
-            <h3>Written By: Takuma Okada </h3>
-            {!hasGame && <AloneExplanation />}
-            {signedIn && !hasGame && <Button onClick={e => setNewGame(!newGame)} >{(!newGame) ? "Start New Game" : "Close Form"}</Button>}
-            {newGame && <AloneForm makeNewGameProfile={makeNewGameProfile} playerName={playerName} handleChange={handleChange} />}
-            {signedIn && hasGame && <div>
-                <PlanetList planets={planets} />
-                <Button onClick={getNewPlanet}>Get New Planet</Button>
-                {showNewPlanet && <NewPlanet planetData={planetData} />}
-            </div>}
+        <div className="alonePage">
+            <h1 className="alonetitle">Alone Among the Stars</h1>
+            {!hasGame && <AloneExplanation className="explanation" signedIn={signedIn} newGame={newGame} setNewGame={setNewGame} makeNewGameProfile={makeNewGameProfile} playerName={playerName} handleChange={handleChange} />}
+            {signedIn && hasGame && < Button variant="dark" onClick={getNewPlanet}>Get New Planet</Button>}
+            {
+                signedIn && hasGame && <div className="workSection">
+                    <PlanetList className="planetList" planets={planets} getGame={getGame} />
+                    {showNewPlanet && <NewPlanet className="planet" planetData={planetData} getNewPlanet={getNewPlanet} getGame={getGame} />}
 
-        </div>
+                </div>
+            }
+
+
+        </div >
     )
 }
 

@@ -28,7 +28,7 @@ class OneDayThymeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OneDayThyme
-        fields = ["id", "profile", "day", "total_prompts", "entries"]
+        fields = ["id", "profile", "total_prompts", "entries", "prompts", "day"]
 
     def get_entries(self, instance):
         entries = instance.entries.all()

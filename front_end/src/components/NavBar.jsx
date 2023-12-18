@@ -8,7 +8,7 @@ import { api } from "../utilities"
 import Button from 'react-bootstrap/Button';
 
 
-function NavBar({ user, signedIn, setUser, setSignedIn, displayName }) {
+function NavBar({ user, signedIn, setUser, setSignedIn }) {
 
 
 
@@ -30,15 +30,15 @@ function NavBar({ user, signedIn, setUser, setSignedIn, displayName }) {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+        <Navbar collapseOnSelect expand="lg" variant="dark" className="navbar-custom">
             <Container>
-                <Navbar.Brand as={Link} to="/">Journal RPG</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">QuillQuest</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <NavDropdown title="All Games" id="collapsible-nav-dropdown">
-                            <NavDropdown.Item as={Link} to="alone/about/">Alone Among the Stars</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="thyme/about/">One Day at a Thyme</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="alone/">Alone Among the Stars</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="thyme/">One Day at a Thyme</NavDropdown.Item>
                         </NavDropdown>
                         {signedIn && <Nav.Link as={Link} to="mygames/">My Games</Nav.Link>}
                     </Nav>
@@ -48,7 +48,7 @@ function NavBar({ user, signedIn, setUser, setSignedIn, displayName }) {
                             <Nav.Link as={Link} to="signup/">Sign Up</Nav.Link>
                         </Nav> :
                         <Nav>
-                            <Nav.Link as={Link} to="aboutme/">{displayName}</Nav.Link>
+                            <Nav.Link as={Link} to="aboutme/">{user}</Nav.Link>
                             <Nav.Link as={Button} onClick={logout}>Logout</Nav.Link>
                         </Nav>
                     }

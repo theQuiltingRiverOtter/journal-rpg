@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "profile_app",
     "alone_stars_app",
     "one_day_thyme_app",
+    "thesaurus_app",
 ]
 
 MIDDLEWARE = [

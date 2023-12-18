@@ -21,7 +21,7 @@ class SignUp(APIView):
         user = User.objects.create_user(**request.data)
         token = Token.objects.create(user=user)
         return Response(
-            {"user": user.email, "token": token.key}, status=HTTP_201_CREATED
+            {"user": user.display_name, "token": token.key}, status=HTTP_201_CREATED
         )
 
 
@@ -33,7 +33,7 @@ class LogIn(APIView):
         print(user)
         if user:
             token, created = Token.objects.get_or_create(user=user)
-            return Response({"token": token.key, "user": user.email})
+            return Response({"token": token.key, "user": user.display_name})
         else:
             return Response("No user matching credentials", status=HTTP_404_NOT_FOUND)
 

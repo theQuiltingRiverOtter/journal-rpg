@@ -42,6 +42,5 @@ def get_alone_prompts(prompt_amount):
         prompt["location"] = choice(locations)
         prompt["what"] = choice(whats)
         json_prompt = json.dumps(prompt)
-        print(json_prompt)
         prompts.append(json_prompt)
     return prompts

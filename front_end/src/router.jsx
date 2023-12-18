@@ -6,6 +6,7 @@ import SignupPage from "./pages/SignupPage";
 import MyGames from "./pages/MyGames";
 import AlonePage from "./pages/AlonePage";
 import ThymePage from "./pages/ThymePage";
+import AboutMe from "./pages/AboutMe";
 
 
 const router = createBrowserRouter([
@@ -30,11 +31,16 @@ const router = createBrowserRouter([
                 element: <MyGames />
             },
             {
-                path: "alone/about/",
+                path: "alone/",
                 element: <AlonePage />
-            }, {
-                path: "thyme/about/",
+            },
+            {
+                path: "thyme/",
                 element: <ThymePage />
+            },
+            {
+                path: "aboutme/",
+                element: <AboutMe />
             }
         ]
     }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { api } from "../utilities"
 import { useNavigate } from "react-router-dom"
 import { useOutletContext } from "react-router-dom";
+import "../index.css"
 
 function LoginPage() {
     const [email, setEmail] = useState("")
@@ -28,7 +29,8 @@ function LoginPage() {
             api.defaults.headers.common["Authorization"] = `Token ${token}`;
             setUser(user);
             setSignedIn(true)
-            navigate("/")
+            navigate(-1)
+
 
         } catch (err) {
             console.log(err)
@@ -36,7 +38,7 @@ function LoginPage() {
 
     }
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form className="form" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />

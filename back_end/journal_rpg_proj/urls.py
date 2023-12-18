@@ -24,4 +24,6 @@ urlpatterns = [
     path("api/v1/alone/", include("alone_stars_app.urls")),
     path("api/v1/thyme/", include("one_day_thyme_app.urls")),
     path("api/v1/entries/", include("entry_app.urls")),
+    path("api/v1/thesaurus/", include("thesaurus_app.urls")),
+    path("api/v1/apod/", include("apod_app.urls")),
 ]

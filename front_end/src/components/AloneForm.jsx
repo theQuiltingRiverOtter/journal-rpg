@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 function AloneForm({ playerName, makeNewGameProfile, handleChange }) {
 
     return (
-        <Form onSubmit={makeNewGameProfile}>
+        <Form className="aloneForm" onSubmit={makeNewGameProfile}>
             <Form.Group className="mb-3" controlId="player_name">
                 <Form.Label>Player Name</Form.Label>
                 <Form.Control type="text" value={playerName} onChange={handleChange} />
