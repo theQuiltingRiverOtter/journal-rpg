@@ -50,9 +50,7 @@ function ThymePage() {
     const createDay = (id) => async () => {
         let lastDay = 0
         for (let day of days) {
-            console.log(day)
             if (day.day >= lastDay) {
-                console.log(day.day)
                 lastDay = day.day
             }
         }

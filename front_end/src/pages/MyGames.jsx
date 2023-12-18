@@ -31,7 +31,6 @@ function MyGames() {
     }
 
     const editGame = (idx) => (e) => {
-        console.log(idx)
         setShowGameForm(prevForms => prevForms.map((prev, i) => (idx == i) ? !prev : prev))
 
     }
@@ -44,9 +43,7 @@ function MyGames() {
     }
 
     const deleteGame = (profile_id) => async (e) => {
-        console.log("deleting")
         const response = await api.delete(`profiles/${profile_id}/`)
-        console.log(response)
         getMyGames()
         setShowGameForm(prevForms => prevForms.map(prev => false))
     }

@@ -21,8 +21,8 @@ class OneDayThyme(models.Model):
     )
     total_prompts = models.PositiveIntegerField(validators=[v.MaxValueValidator(6)])
     prompts = ArrayField(models.CharField(), default=list)
-    entries = models.ManyToManyField(Entry)
+    entries = models.ManyToManyField(Entry, blank=True)
     day = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return f"{self.profile} ${self.total_prompts} ${self.prompts.length} ${self.entries.length} ${self.day}"
+        return f"{self.profile} ${self.total_prompts} ${len(self.prompts)} ${self.entries.count()} ${self.day}"

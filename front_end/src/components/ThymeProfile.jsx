@@ -9,7 +9,6 @@ function ThymeProfile({ houseDescription, setHouseDescription, homeLocation, cre
     const getImage = (location) => (e) => {
         let locationSplit = location.split(" ")
         let lastWord = locationSplit[locationSplit.length - 1]
-        console.log(lastWord)
         const locationImages = {
             "woods":
                 [
@@ -64,7 +63,6 @@ function ThymeProfile({ houseDescription, setHouseDescription, homeLocation, cre
             "desert": ["/cottage/desert/desert1.jpg", "/cottage/desert/desert2.jpg", "/cottage/desert/desert3.jpg", "/cottage/desert/desert4.jpg"]
 
         }
-        console.log(lastWord)
         setImgSrc(locationImages[lastWord][Math.floor(Math.random() * 6)])
 
     }

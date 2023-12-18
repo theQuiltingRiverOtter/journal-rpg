@@ -23,17 +23,17 @@ function PlanetList({ planets, getGame }) {
     }
     const submitEdits = (index, planet_id) => async (e) => {
         e.preventDefault();
-        console.log(planet_id);
         const response = api.put(`alone/${planet_id}/`, { planet_name: planetName })
         getGame()
         setPlanetName("")
         setShowEditForm(prevForm => prevForm.map((prev, i) => i == index ? !prev : prev))
     }
 
-    const deletePlanet = (planetId) => async (e) => {
-        console.log("deleting", planetId)
-        const response = await api.delete(`alone/${planetId}/`)
-        console.log(response)
+    const deletePlanet = (planet) => async (e) => {
+        for (let entry of planet.entries) {
+            const delete_entry_resp = await api.delete(`entries/${entry.id}`)
+        }
+        const response = await api.delete(`alone/${planet.id}/`)
         getGame();
 
     }
@@ -62,7 +62,6 @@ function PlanetList({ planets, getGame }) {
     const submitEntryEdits = (entry_id) => async (e) => {
         e.preventDefault()
         const response = await api.put(`entries/${entry_id}/`, { content: entryContent })
-        console.log(response)
         setCurrentEntry("")
         setEntryContent("")
         setShowEntryEditForm(false)
@@ -74,7 +73,7 @@ function PlanetList({ planets, getGame }) {
             {planets.length > 0 && planets.map((planet, idx) => (
                 <div key={planet.id} style={{ width: '18rem' }}>
 
-                    <h3>Planet {planet.planet_name} <Pencil className='planetCrud' onClick={showForm(idx)} /> <Trash className="planetCrud" onClick={deletePlanet(planet.id)} />
+                    <h3>Planet {planet.planet_name} <Pencil className='planetCrud' onClick={showForm(idx)} /> <Trash className="planetCrud" onClick={deletePlanet(planet)} />
                     </h3>
                     {showEditForm[idx] && <Form onSubmit={submitEdits(idx, planet.id)} >
                         <Form.Group className="mb-3" controlId="editPlanetForm">

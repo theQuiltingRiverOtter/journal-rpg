@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { Search } from "react-bootstrap-icons"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { api } from "../utilities"
@@ -32,7 +31,6 @@ function NewThymeDay({ dayData, thymeProfile, getGame }) {
     const myRef = useRef()
 
     useEffect(() => {
-        console.log(dayData.prompts)
         if (dayData.prompts) {
             setPrompts(dayData.prompts)
             setShowCards(new Array(dayData.prompts.length).fill(false))
@@ -80,7 +78,6 @@ function NewThymeDay({ dayData, thymeProfile, getGame }) {
         setPrompts(prevPrompts => prevPrompts.filter((prev, i) => i !== currentIdx))
         setShowCards(prevCards => prevCards.map(prev => false))
         const response = await api.post(`thyme/${thymeProfile[0].id}/day/${dayData.day}/new_entry/`, { content: content, prompt: currentPrompt })
-        console.log(response)
         setContent("")
         getGame()
     }
@@ -132,7 +129,7 @@ function NewThymeDay({ dayData, thymeProfile, getGame }) {
                     <Form.Group className="mb-3" controlId="journal_entry">
                         <Form.Label>Journal Entry</Form.Label>
                         <div className="textAreaContainer">
-                            <Form.Control className="textArea" as="textarea" ref={myRef} name="content" value={content} onChange={changeContent} rows={3} />
+                            <Form.Control className="textArea" as="textarea" ref={myRef} name="content" value={content} onChange={changeContent} rows={4} />
                             <div className="thesaurusBtn" onClick={lookUpText}><img className="thesaurusLogo" src="/thesaurus.png" /></div>
                         </div>
                     </Form.Group>

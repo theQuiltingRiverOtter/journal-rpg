@@ -23,9 +23,45 @@
     flex-direction: column;
     justify-content: space-between;
 
+
 }
 
-.cardBack img {
+.cardFrontContainer {
+    width: 100%;
+    position: relative;
+}
+
+.cardImage {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+}
+
+.cardLocation {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.cardHow {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+}
+
+.accordionOverlay {
+    position: absolute;
+    bottom: 0;
+}
+
+
+.accordion-header button:focus {
+    background-color: #022E51;
+    color: white;
+}
+
+.cardBackImg {
     width: 250px;
     height: 350px;
     cursor: pointer;
@@ -33,6 +69,10 @@
     perspective: 800px;
 
 
+}
+
+.newPlanet {
+    width: 70%;
 }
 
 
@@ -119,4 +159,24 @@
     color: white;
     border-radius: 5px;
     padding: 4px;
+}
+
+.textAreaContainer {
+    position: relative;
+
+}
+
+.thesaurusLogo {
+    width: 35px;
+    height: 35px;
+    margin: 0;
+}
+
+.thesaurusBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    background-color: #022E51;
+    border-radius: 4px;
 }

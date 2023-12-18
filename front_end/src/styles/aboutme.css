@@ -1,0 +1,55 @@
+.userContainer {
+    display: flex;
+    flex-direction: row;
+    border: solid 3px #013328;
+    border-radius: 12px;
+    margin: auto;
+    width: 700px;
+    margin-top: 200px;
+}
+
+.userLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #CC6D3D;
+    color: white;
+    padding: 10px;
+    width: 200px;
+}
+
+.userRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #A3B4C8;
+    padding: 10px;
+    width: 100%;
+}
+
+.infoGroups {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+}
+
+.sectionTitle {
+    border-bottom: #CC6D3D solid 1px;
+}
+
+.progressBarContainer {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.progressBar {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #4caf50;
+    /* Green color */
+}

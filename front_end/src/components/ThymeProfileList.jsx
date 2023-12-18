@@ -12,17 +12,15 @@ function ThymeProfileList({ thymeProfile, currentProfile, days, getGame, createD
 
 
     const deleteProfile = (id) => async () => {
-        console.log("deleting")
-        console.log(id)
         const response = await api.delete(`thyme/${id}/`)
-        console.log(response.data)
         getGame()
 
     }
-    const deleteDay = (thyme_id, day_id) => async () => {
-        console.log("deleting")
-        const response = await api.delete(`thyme/${thyme_id}/day/${day_id}`)
-        console.log(response)
+    const deleteDay = (thyme_id, day) => async () => {
+        for (let entry of day.entries) {
+            const delete_day_resp = await api.delete(`entries/${entry.id}/`)
+        }
+        const response = await api.delete(`thyme/${thyme_id}/day/${day.id}`)
         getGame()
     }
 
@@ -30,7 +28,6 @@ function ThymeProfileList({ thymeProfile, currentProfile, days, getGame, createD
     const submitEdits = (id) => async (e) => {
         e.preventDefault();
         const response = await api.put(`thyme/${id}/`, { house_description: houseDescription })
-        console.log(response)
         getGame()
         setHouseDescription("")
         setEditForm(false)
@@ -55,7 +52,7 @@ function ThymeProfileList({ thymeProfile, currentProfile, days, getGame, createD
                     </Form>}
                     {currentProfile == tp.id && days.map(day => (
                         <div key={day.id}>
-                            <h4>Day: {day.day} <Trash onClick={deleteDay(tp.id, day.id)} /></h4>
+                            <h4>Day: {day.day} <Trash onClick={deleteDay(tp.id, day)} /></h4>
                             {day.entries && day.entries.length > 0 && day.entries.map(entry => (
                                 <ThymeEntry key={entry.id} getGame={getGame} entry={entry} />
 
