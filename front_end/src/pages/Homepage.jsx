@@ -1,16 +1,19 @@
 import "../styles/homepage.css"
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom"
+import { Link, useOutletContext } from "react-router-dom"
 import Card from 'react-bootstrap/Card';
 import Footer from "../components/Footer"
 
 function HomePage() {
+
+    const { user } = useOutletContext();
+
     return (
         <div className="homepage">
             <div className="top">
                 <h1 className="title">Immerse Yourself in a New Adventure</h1>
                 <h3 className="subtitle">Explore Space. Embark on Magical Adventures. Investigate Underwater Realms.</h3>
-                <Button as={Link} to={"signup/"} variant="dark" className="loginBtn">Start Your Journey Now</Button>
+                {!user && <Button as={Link} to={"signup/"} variant="dark" className="loginBtn">Start Your Journey Now</Button>}
                 <img src="/journal.jpg" alt="journal" className='backgroundImage' />
             </div>
             <div className="middle">

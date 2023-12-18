@@ -46,7 +46,7 @@ class SingleEntry(APIView):
         return Response("Entry not found", status=HTTP_404_NOT_FOUND)
 
     def delete(self, request, entry_id):
-        entry = request.user.entries.get(id=entry_id)
+        entry = Entry.objects.get(id=entry_id)
         if entry:
             entry.delete()
             return Response(status=HTTP_204_NO_CONTENT)

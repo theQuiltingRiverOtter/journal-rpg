@@ -12,6 +12,20 @@ from .serializers import ProfileSerializer
 
 
 # Create your views here.
+
+
+class AllGames(APIView):
+    def get(self, request):
+        try:
+            all_games = ProfileSerializer(
+                GameProfile.objects.filter(public=True), many=True
+            )
+            return Response(all_games.data)
+        except Exception as e:
+            print(e)
+            return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
+
+
 class Profiles(APIView):
     def get(self, request):
         try:

@@ -11,6 +11,8 @@ function MyGames() {
     const [showGameForm, setShowGameForm] = useState([])
     const [playerName, setPlayerName] = useState()
     const [publicGame, setPublicGame] = useState(false)
+    const [userAge, setUserAge] = useState()
+
 
     const navigate = useNavigate();
 
@@ -18,6 +20,8 @@ function MyGames() {
         try {
             const response = await api.get("profiles/")
             setMyGames(response.data)
+            const user_response = await api.get("users/info/")
+            setUserAge(user_response.data.age)
             for (let game in response.data) {
                 setShowGameForm(prevForms => [...prevForms, false])
             }
@@ -33,10 +37,7 @@ function MyGames() {
     }
     const submitEdits = (profile_id) => async (e) => {
         e.preventDefault()
-        console.log(profile_id)
-        console.log(playerName, publicGame)
         const response = await api.put(`profiles/${profile_id}/`, { player_name: playerName, public: publicGame })
-        console.log(response.data)
         setPlayerName("")
         setPublicGame(false)
         getMyGames()
@@ -81,7 +82,7 @@ function MyGames() {
                                 <Form.Control type="text" value={playerName} onChange={(e) => setPlayerName(e.target.value)} />
                             </Form.Group>
 
-                            {game.age > 13 && <Form.Group className="mb-3" controlId="publicCheck">
+                            {userAge > 13 && <Form.Group className="mb-3" controlId="publicCheck">
                                 <Form.Check type="checkbox" label="Make Public" checked={publicGame} onChange={(e) => setPublicGame(e.target.checked)} />
                             </Form.Group>}
                             <Button variant="primary" type="submit">

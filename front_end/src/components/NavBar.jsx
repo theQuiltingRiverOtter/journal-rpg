@@ -41,6 +41,7 @@ function NavBar({ user, signedIn, setUser, setSignedIn }) {
                             <NavDropdown.Item as={Link} to="thyme/">One Day at a Thyme</NavDropdown.Item>
                         </NavDropdown>
                         {signedIn && <Nav.Link as={Link} to="mygames/">My Games</Nav.Link>}
+                        {signedIn && <Nav.Link as={Link} to="allgames/">Public Games</Nav.Link>}
                     </Nav>
                     {!signedIn ?
                         <Nav>
