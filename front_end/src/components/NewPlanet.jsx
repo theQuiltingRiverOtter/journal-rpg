@@ -90,7 +90,7 @@ function NewPlanet({ planetData, getGame }) {
             "moon": "/aloneCardFronts/moon.jpg",
             "river": "/aloneCardFronts/river2.jpg",
             "snowy": "/aloneCardFronts/snowy.jpg",
-            "treetop": "/aloneCardFronts/treetop5.jpg",
+            "treetop": "/aloneCardFronts/treetop.jpg",
             "underground": "/aloneCardFronts/underground.jpg",
             "deep water": "/aloneCardFronts/underwater.jpg",
             "volcano": "/aloneCardFronts/volcano4.jpg"

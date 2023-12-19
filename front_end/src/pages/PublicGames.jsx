@@ -24,7 +24,6 @@ function PublicGames() {
 
     return (
         <div>
-            <h1>Public Games</h1>
             {!currentGame && publicGames.length > 0 && publicGames.map((game) => (
                 <Card key={game.id} style={{ width: '18rem' }}>
                     <Card.Body>
@@ -35,9 +34,10 @@ function PublicGames() {
                 </Card>
             ))}
             {currentGame && <div>
-                <h1>Showing game</h1>
+                <h1>{currentGame.game_name}</h1>
+                <h4>{currentGame.player_name}</h4>
                 <div> {currentGame.entries.map(entry => (
-                    <p key={entry.id}>{entry.content}</p>
+                    <p key={entry.id}><b>{entry.posted_date}:</b> {entry.content}</p>
                 ))}
                 </div>
                 <Button onClick={() => setCurrentGame("")}>Close Game</Button>
