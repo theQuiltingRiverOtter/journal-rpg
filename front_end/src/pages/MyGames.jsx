@@ -79,7 +79,7 @@ function MyGames() {
                                 <Form.Control type="text" value={playerName} onChange={(e) => setPlayerName(e.target.value)} />
                             </Form.Group>
 
-                            {userAge > 13 && <Form.Group className="mb-3" controlId="publicCheck">
+                            {userAge >= 13 && <Form.Group className="mb-3" controlId="publicCheck">
                                 <Form.Check type="checkbox" label="Make Public" checked={publicGame} onChange={(e) => setPublicGame(e.target.checked)} />
                             </Form.Group>}
                             <Button variant="primary" type="submit">
